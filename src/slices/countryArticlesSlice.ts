@@ -16,7 +16,7 @@ const initialState: CountryArticlesState = {
   totalPages: 1,
 };
 
-const apiKey = "6b7575cc2eef43ebb093b77b6b2126cb";
+const apiKey = import.meta.env.VITE_API_NEWS_API;
 const pageSize = 10;
 
 export const fetchArticlesByCountry = createAsyncThunk(

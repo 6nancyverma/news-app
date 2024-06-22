@@ -1,56 +1,66 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { RootState } from "../store/store";
+import { Article } from "../types/types";
 
 interface SearchState {
-  suggestions: string[];
+  articles: Article[];
   loading: boolean;
   error: string | null;
 }
 
 const initialState: SearchState = {
-  suggestions: [],
+  articles: [],
   loading: false,
   error: null,
 };
 
-const apiKey = "6b7575cc2eef43ebb093b77b6b2126cb";
+const apiKey = import.meta.env.VITE_API_NEWS_API;
 
-export const fetchSearchSuggestions = createAsyncThunk<string[], string>(
-  "search/fetchSearchSuggestions",
+export const fetchSearchResults = createAsyncThunk<Article[], string>(
+  "search/fetchSearchResults",
   async (query) => {
-    const response = await axios.get(
-      `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`
-    );
-    return response.data.articles.map(
-      (article: { title: string }) => article.title
-    );
+    try {
+      const response = await axios.get(
+        `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`
+      );
+      return response.data.articles;
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        throw new Error(err.message || "Failed to fetch search results");
+      } else {
+        throw new Error("An unknown error occurred");
+      }
+    }
   }
 );
+
+export const selectSearchArticles = (state: RootState) => state.search.articles;
 
 const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
-    clearSuggestions: (state) => {
-      state.suggestions = [];
+    clearSearchResults: (state) => {
+      state.articles = [];
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchSearchSuggestions.pending, (state) => {
+      .addCase(fetchSearchResults.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchSearchSuggestions.fulfilled, (state, action) => {
+      .addCase(fetchSearchResults.fulfilled, (state, action) => {
         state.loading = false;
-        state.suggestions = action.payload;
+        state.articles = action.payload;
       })
-      .addCase(fetchSearchSuggestions.rejected, (state, action) => {
+      .addCase(fetchSearchResults.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "An error occurred";
       });
   },
 });
 
-export const { clearSuggestions } = searchSlice.actions;
+export const { clearSearchResults } = searchSlice.actions;
 export default searchSlice.reducer;

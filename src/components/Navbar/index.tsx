@@ -1,11 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../store/store";
-import {
-  fetchSearchSuggestions,
-  clearSuggestions,
-} from "../../slices/searchSlice";
 import "./index.css";
 import { FaCompass } from "react-icons/fa";
 import NavLinks from "../NavLink";
@@ -13,7 +7,6 @@ import NavLinks from "../NavLink";
 function Navbar() {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const [selectedCountry, setSelectedCountry] = useState<string>("In");
 
@@ -24,7 +17,6 @@ function Navbar() {
     if (trimmedSearchTerm) {
       navigate(`/search?q=${encodeURIComponent(trimmedSearchTerm)}`);
       setSearchTerm("");
-      dispatch(clearSuggestions());
     }
     if (selectedCountry) {
       console.log("selectedCountry", selectedCountry);
@@ -35,14 +27,6 @@ function Navbar() {
     setSelectedCountry(countryCode);
     navigate(`/${countryCode}`);
   };
-
-  useEffect(() => {
-    if (searchTerm) {
-      dispatch(fetchSearchSuggestions(searchTerm));
-    } else {
-      dispatch(clearSuggestions());
-    }
-  }, [searchTerm, dispatch]);
 
   return (
     <main className="nav-container">

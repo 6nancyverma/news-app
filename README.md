@@ -2,6 +2,12 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+<!-- Api information -->
+
+I have integrated the News API successfully into my project, and during development on localhost, the API requests and functionality worked perfectly. However, upon deployment to production, I encountered issues due to News API's pricing restrictions. To circumvent this, I opted for the developer plan offered by News API, which is intended solely for development and testing purposes across various project types. Unfortunately, News API does not permit its use in production environments, restricting its functionality to non-commercial activities and testing phases. This necessitated adjustments in my deployment strategy to accommodate these limitations while ensuring continued functionality and compliance with News API's usage policies.
+
+<!-- Please run the code on localhost -->
+
 <!-- Guide to run the News app- -->
 
 1. bun install or npm install (you can use both)

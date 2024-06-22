@@ -13,7 +13,7 @@ const initialState: SearchState = {
   error: null,
 };
 
-const apiKey = import.meta.env.VITE_API_NEWS_API_KEY;
+const apiKey = "9b52ff6732bc463fa2f03a41e8eff21a";
 
 export const fetchSearchSuggestions = createAsyncThunk<string[], string>(
   "search/fetchSearchSuggestions",

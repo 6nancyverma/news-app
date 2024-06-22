@@ -23,7 +23,7 @@ const initialState: WeatherState = {
   weatherDescription: null,
 };
 
-const weatherApiKey = import.meta.env.VITE_API_WEATHER_API_KEY;
+const weatherApiKey = "c1a54364c66302b2317a68cdd7e6dcb5";
 
 interface WeatherResponse {
   temperature: number;

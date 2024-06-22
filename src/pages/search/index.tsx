@@ -6,7 +6,7 @@ import Loading from "../../components/Loading";
 import { Article } from "../../types/types";
 import CustomError from "../../components/Error";
 
-const apiKey = import.meta.env.VITE_API_NEWS_API_KEY;
+const apiKey = "9b52ff6732bc463fa2f03a41e8eff21a";
 
 const Search: React.FC = () => {
   const location = useLocation();

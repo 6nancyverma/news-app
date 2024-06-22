@@ -1,0 +1,33 @@
+.nav-container {
+  background-color: white;
+}
+.navbar {
+  background-color: white;
+  max-width: 1920px;
+  margin: auto;
+}
+.search-form {
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-input {
+  flex: 1;
+}
+
+.nav-underline .nav-link {
+  color: #000;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.nav-underline .nav-link.active {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+}
+
+.nav-underline .nav-link:hover,
+.nav-underline .nav-link:focus,
+.nav-underline .nav-link:active {
+  text-decoration: none;
+}

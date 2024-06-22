@@ -10,8 +10,9 @@ I have integrated the News API successfully into my project, and during developm
 
 <!-- Guide to run the News app- -->
 
-1. bun install or npm install (you can use both)
-2. bun dev or npm run dev (you can use both)
+1. cd .\news-app\
+2. bun install or npm install (you can use both)
+3. bun dev or npm run dev (you can use both)
 
 <!-- very important point----->
 

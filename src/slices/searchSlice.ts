@@ -13,7 +13,7 @@ const initialState: SearchState = {
   error: null,
 };
 
-const apiKey = "9b52ff6732bc463fa2f03a41e8eff21a";
+const apiKey = "6b7575cc2eef43ebb093b77b6b2126cb";
 
 export const fetchSearchSuggestions = createAsyncThunk<string[], string>(
   "search/fetchSearchSuggestions",

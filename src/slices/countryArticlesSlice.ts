@@ -16,7 +16,7 @@ const initialState: CountryArticlesState = {
   totalPages: 1,
 };
 
-const apiKey = "9b52ff6732bc463fa2f03a41e8eff21a";
+const apiKey = "6b7575cc2eef43ebb093b77b6b2126cb";
 const pageSize = 10;
 
 export const fetchArticlesByCountry = createAsyncThunk(

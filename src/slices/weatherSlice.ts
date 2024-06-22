@@ -23,7 +23,7 @@ const initialState: WeatherState = {
   weatherDescription: null,
 };
 
-const weatherApiKey = "c1a54364c66302b2317a68cdd7e6dcb5";
+const weatherApiKey = "4b2c5863df1eea7015fdc51d41756899";
 
 interface WeatherResponse {
   temperature: number;

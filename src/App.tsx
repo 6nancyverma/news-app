@@ -27,7 +27,7 @@ const App: React.FC = () => {
         <Routes>
           <Route
             path="/"
-            element={<Home country="In" topic="all" icon={<FaHome />} />}
+            element={<Home country="us" topic="all" icon={<FaHome />} />}
           />
           <Route
             path="/:country"
@@ -36,7 +36,7 @@ const App: React.FC = () => {
           <Route
             path="/business"
             element={
-              <News country="In" topic="business" icon={<FaBusinessTime />} />
+              <News country="us" topic="business" icon={<FaBusinessTime />} />
             }
           />
           <Route

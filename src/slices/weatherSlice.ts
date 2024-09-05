@@ -65,8 +65,9 @@ export const fetchCityFromCoordinates = createAsyncThunk<
   "weather/fetchCityFromCoordinates",
   async (coordinates: { lat: number; lon: number }) => {
     const response = await axios.get(
-      `http://api.openweathermap.org/geo/1.0/reverse?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${weatherApiKey}`
+      `https://api.openweathermap.org/geo/1.0/reverse?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${weatherApiKey}`
     );
+    
     const data = response.data;
     const city = data[0].name;
     return city;
